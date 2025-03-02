@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Transpile to ES6
+    "module": "CommonJS", // Use CommonJS for Node.js compatibility
+    "outDir": "dist", // Output folder for compiled files
+    "rootDir": "src", // Source folder for TypeScript files
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"], // Include all TypeScript files in the "src" folder
+  "exclude": ["node_modules", "dist"] // Exclude unnecessary files
+}

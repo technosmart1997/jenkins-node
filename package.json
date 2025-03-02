@@ -2,10 +2,10 @@
   "name": "app",
   "version": "1.0.0",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon dist/server.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,10 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "typescript": "^5.8.2"
   }
 }

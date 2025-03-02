@@ -2,14 +2,14 @@ pipeline {
     agent any 
 
     environment {
-        NODEJS_HOME = tool 'NodeJS' // Define Node.js tool in Jenkins
+        NODEJS_HOME = tool 'NodeJS'
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/technosmart1997/jenkins-node.git'
+                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/technosmart1997/jenkins-node.git'
             }
         }
 
@@ -21,23 +21,23 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm run dev'
+                sh 'npm run build'  // Ensure it's a command that completes
             }
         }
 
         stage('Deploy to Staging') {
             when {
-                branch 'staging'
+                expression { env.BRANCH_NAME == 'staging' }
             }
             steps {
                 sh 'echo Deploying to Staging'
-                // Add your deployment commands here
+                // Add your deployment commands
             }
         }
 
         stage('Deploy to Production') {
             when {
-                branch 'prod'
+                expression { env.BRANCH_NAME == 'prod' }
             }
             steps {
                 sh 'echo Deploying to Production'
