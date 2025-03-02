@@ -25,25 +25,25 @@ pipeline {
             }
         }
 
-        stage('Deploy to Staging') {
-            when {
-                expression { env.BRANCH_NAME == 'staging' }
-            }
-            steps {
-                sh 'echo Deploying to Staging'
-                // Add your deployment commands
-            }
-        }
+        // stage('Deploy to Staging') {
+        //     when {
+        //         expression { env.BRANCH_NAME == 'staging' }
+        //     }
+        //     steps {
+        //         sh 'echo Deploying to Staging'
+        //         // Add your deployment commands
+        //     }
+        // }
 
-        stage('Deploy to Production') {
-            when {
-                expression { env.BRANCH_NAME == 'prod' }
-            }
-            steps {
-                sh 'echo Deploying to Production'
-                // Add production deployment commands
-            }
-        }
+        // stage('Deploy to Production') {
+        //     when {
+        //         expression { env.BRANCH_NAME == 'prod' }
+        //     }
+        //     steps {
+        //         sh 'echo Deploying to Production'
+        //         // Add production deployment commands
+        //     }
+        // }
     }
 
     post {
