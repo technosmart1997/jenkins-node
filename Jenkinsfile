@@ -28,7 +28,7 @@ pipeline {
         stage('Run Dev Server') {
             steps {
                 script {
-                    def devProcess = sh(script: 'npm run dev && echo $!', returnStdout: true).trim()
+                    def devProcess = sh(script: 'npm run dev & echo $!', returnStdout: true).trim()
                     sleep(10)  // Wait for a few seconds to ensure the server starts
                     def isRunning = sh(script: "ps -p ${devProcess} > /dev/null && echo 'running' || echo 'not running'", returnStdout: true).trim()
                     
