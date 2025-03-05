@@ -19,11 +19,18 @@ pipeline {
             }
         }
 
+       stage('Test Project') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+
         stage('Build Project') {
             steps {
                 sh 'npm run build'
             }
         }
+        
 
         stage('Run Dev Server') {
             steps {
