@@ -25,6 +25,12 @@ if (cluster.isPrimary) {
     res.status(200).json({ status: true, message: "Pong" });
   });
 
+  app.get("/books", (req: Request, res: Response) => {
+    res
+      .status(200)
+      .json({ status: true, message: "Books Response", books: [] });
+  });
+
   const PORT: number = parseInt(process.env.PORT || "3002", 10);
   app.listen(PORT, () => {
     console.log(`Worker process ${process.pid} is listening on port ` + PORT);
